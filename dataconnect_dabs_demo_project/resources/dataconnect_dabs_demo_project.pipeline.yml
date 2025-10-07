@@ -1,0 +1,15 @@
+# The main pipeline for dataconnect_dabs_demo_project
+resources:
+  pipelines:
+    dataconnect_dabs_demo_project_pipeline:
+      name: dataconnect_dabs_demo_project_pipeline
+      ## Catalog is required for serverless compute
+      catalog: main
+      schema: dataconnect_dabs_demo_project_${bundle.target}
+      serverless: true
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
