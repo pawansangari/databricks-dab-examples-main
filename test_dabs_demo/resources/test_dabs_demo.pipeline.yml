@@ -1,0 +1,15 @@
+# The main pipeline for test_dabs_demo
+resources:
+  pipelines:
+    test_dabs_demo_pipeline:
+      name: test_dabs_demo_pipeline
+      ## Catalog is required for serverless compute
+      catalog: main
+      schema: test_dabs_demo_${bundle.target}
+      serverless: true
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
