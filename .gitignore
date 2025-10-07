@@ -1,0 +1,13 @@
+*conf*.json
+typings/
+.DS_Store
+__pycache__
+.idea/
+.vscode/
+.env
+.venv
+.databricks
+build/
+dist/
+
+.databricks
