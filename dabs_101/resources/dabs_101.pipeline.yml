@@ -1,0 +1,15 @@
+# The main pipeline for dabs_101
+resources:
+  pipelines:
+    dabs_101_pipeline:
+      name: dabs_101_pipeline
+      ## Catalog is required for serverless compute
+      catalog: main
+      schema: dabs_101_${bundle.target}
+      serverless: true
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
